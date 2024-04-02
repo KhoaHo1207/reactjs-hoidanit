@@ -1,8 +1,8 @@
-import logo from "./logo.svg";
-import "./App.scss";
 import "../App.css";
+import Form from "../Examples/Form";
 import MyComponent from "../Examples/MyComponent";
-import OnMouseOut from "../Examples/OnMouseOut";
+import "./App.scss";
+import logo from "./logo.svg";
 
 function App() {
   return (
@@ -20,8 +20,7 @@ function App() {
         >
           Learn React
         </a>
-        <MyComponent />
-        <OnMouseOut />
+        <Form />
       </header>
     </div>
   );

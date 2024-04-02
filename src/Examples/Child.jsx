@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 function Child(props) {
-  const { salaryList } = props;
-  console.log(salaryList);
+  const { jobList } = props;
 
   const [show, setShow] = useState(false);
 
@@ -22,11 +21,11 @@ function Child(props) {
         </div>
       ) : (
         <>
-          {salaryList.map((item, index) => {
+          {jobList.map((item, index) => {
             if (+item.salary >= 0) {
               return (
                 <div key={item.id}>
-                  name: {item.name} - salary: {item.salary} $
+                  Job: {item.title} - Salary: {item.salary} $
                 </div>
               );
             }

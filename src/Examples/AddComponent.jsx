@@ -13,7 +13,20 @@ function AddComponent(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.addNewJob("Hello from child");
+    if (!job.title || !job.salary) {
+      alert("Missing param");
+      return;
+    }
+    props.addNewJob({
+      id: Math.floor(Math.random() * 1001),
+      title: job.title,
+      salary: job.salary,
+    });
+
+    setJob({
+      title: "",
+      salary: "",
+    });
   };
 
   return (

@@ -12,6 +12,10 @@ function Child(props) {
   const handleHide = () => {
     setShow(false);
   };
+
+  const handleClickDelete = (job) => {
+    props.deleteAJob(job);
+  };
   return (
     <div>
       <h1>Bang luong: </h1>
@@ -26,6 +30,12 @@ function Child(props) {
               return (
                 <div key={item.id}>
                   Job: {item.title} - Salary: {item.salary} $
+                  <button
+                    style={{ marginLeft: "5px" }}
+                    onClick={() => handleClickDelete(item)}
+                  >
+                    X
+                  </button>
                 </div>
               );
             }

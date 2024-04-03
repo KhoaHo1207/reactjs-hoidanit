@@ -22,17 +22,21 @@ function Form() {
   ]);
 
   const addNewJob = (job) => {
-    console.log(job)
-    // setJobList((jobList) => {
-    //   return [...jobList, job];
-    // });
-    
+    console.log(job);
+    setJobList((jobList) => {
+      return [...jobList, job];
+    });
   };
 
+  const deleteAJob = (job) => {
+    let currentJobList = jobList;
+    currentJobList = currentJobList.filter((item) => item.id !== job.id);
+    setJobList(currentJobList);
+  };
   return (
     <div>
       <AddComponent addNewJob={addNewJob} />
-      <Child jobList={jobList} />
+      <Child jobList={jobList} deleteAJob={deleteAJob} />
     </div>
   );
 }

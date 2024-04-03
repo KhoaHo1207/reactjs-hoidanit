@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import "./Demo.scss";
 function Child(props) {
   const { jobList } = props;
 
@@ -20,8 +20,11 @@ function Child(props) {
     <div>
       <h1>Bang luong: </h1>
       {!show ? (
-        <div>
-          <button onClick={handleShow}>Show</button>
+        <div className="btn">
+          div
+          <button className="btn-show" onClick={handleShow}>
+            Show
+          </button>
         </div>
       ) : (
         <>

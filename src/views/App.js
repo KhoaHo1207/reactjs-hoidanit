@@ -1,27 +1,32 @@
 import "../App.css";
-import Form from "../Examples/Form";
-import MyComponent from "../Examples/MyComponent";
+import ListToDo from "../Todos/ListToDo";
 import "./App.scss";
 import logo from "./logo.svg";
+import React from "react";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Form />
+        <p>Todo App with Reacctjs</p>
+        <ListToDo />
       </header>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce}
+      />
     </div>
   );
 }

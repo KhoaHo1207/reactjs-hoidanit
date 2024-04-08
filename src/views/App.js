@@ -1,17 +1,28 @@
 import "../App.css";
 import ListToDo from "../Todos/ListToDo";
 import "./App.scss";
+import Navigation from "./Navigation/Navigation";
 import logo from "./logo.svg";
 import React from "react";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Form from "../Examples/Form";
+import { publicUrl } from "../routes/Route";
+import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Navigation />
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Todo App with Reacctjs</p>
-        <ListToDo />
+        <Routes>
+          {publicUrl.map((route, index) => {
+            const Page = route.component;
+            return <Route key={index} path={route.path} element={<Page />} />;
+          })}
+        </Routes>
+        {/* <Form /> */}
+        {/* <ListToDo /> */}
       </header>
 
       <ToastContainer

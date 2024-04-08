@@ -21,7 +21,6 @@ function Child(props) {
       <h1>Bang luong: </h1>
       {!show ? (
         <div className="btn">
-          div
           <button className="btn-show" onClick={handleShow}>
             Show
           </button>

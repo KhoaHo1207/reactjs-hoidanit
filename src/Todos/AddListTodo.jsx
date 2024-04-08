@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 
 function AddListTodo(props) {
   const [newToDo, setNewToDo] = useState({
@@ -12,14 +13,13 @@ function AddListTodo(props) {
 
   const handleAddTodo = (e) => {
     if (!newToDo.title) {
-      alert("Vui long nhap ");
+      toast.error("Missing title!");
       return;
     }
     props.addNewToDo({
       id: Math.floor(Math.random() * 1000000),
       title: newToDo.title,
     });
-
     setNewToDo({ title: "" });
   };
   return (

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Style.scss";
 import AddListTodo from "./AddListTodo";
 import { ToastContainer, toast } from "react-toastify";
+import Color from "../views/HOC/Color";
 function ListToDo() {
   const [listTodos, setListTodos] = useState([
     {
@@ -56,51 +57,56 @@ function ListToDo() {
   };
   let isObjectEmpty = editTodo && Object.keys(editTodo).length === 0;
   return (
-    <div className="list-todo-container">
-      <AddListTodo addNewToDo={addNewToDo} />
-      <div className="list-todo-content">
-        {listTodos &&
-          listTodos.length > 0 &&
-          listTodos.map((item, index) => {
-            return (
-              <div className="todo-child" key={item.id}>
-                {isObjectEmpty === true ? (
-                  <span>
-                    {index + 1} - {item.title}
-                  </span>
-                ) : (
-                  <>
-                    {editTodo.id === item.id ? (
-                      <span>
-                        {index + 1} -{" "}
-                        <input
-                          value={editTodo.title}
-                          onChange={(e) => handleChangeTodo(e)}
-                        />
-                      </span>
-                    ) : (
-                      <span>
-                        {index + 1} - {item.title}
-                      </span>
-                    )}
-                  </>
-                )}
-                <button className="edit" onClick={() => handleEditTodo(item)}>
-                  {!isObjectEmpty && editTodo.id === item.id ? "Save" : "Edit"}
-                </button>
+    <>
+      <p>Todo App with Reactjs</p>
+      <div className="list-todo-container">
+        <AddListTodo addNewToDo={addNewToDo} />
+        <div className="list-todo-content">
+          {listTodos &&
+            listTodos.length > 0 &&
+            listTodos.map((item, index) => {
+              return (
+                <div className="todo-child" key={item.id}>
+                  {isObjectEmpty === true ? (
+                    <span>
+                      {index + 1} - {item.title}
+                    </span>
+                  ) : (
+                    <>
+                      {editTodo.id === item.id ? (
+                        <span>
+                          {index + 1} -{" "}
+                          <input
+                            value={editTodo.title}
+                            onChange={(e) => handleChangeTodo(e)}
+                          />
+                        </span>
+                      ) : (
+                        <span>
+                          {index + 1} - {item.title}
+                        </span>
+                      )}
+                    </>
+                  )}
+                  <button className="edit" onClick={() => handleEditTodo(item)}>
+                    {!isObjectEmpty && editTodo.id === item.id
+                      ? "Save"
+                      : "Edit"}
+                  </button>
 
-                <button
-                  className="delete"
-                  onClick={() => handleDeleteTodo(item)}
-                >
-                  Delete
-                </button>
-              </div>
-            );
-          })}
+                  <button
+                    className="delete"
+                    onClick={() => handleDeleteTodo(item)}
+                  >
+                    Delete
+                  </button>
+                </div>
+              );
+            })}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
-export default ListToDo;
+export default Color(ListToDo);

@@ -1,0 +1,19 @@
+.list-user-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: align-items;
+
+  .list-user-title {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .list-user-content {
+    .list-user-content-child {
+      width: 400px;
+      margin: 0 auto;
+      height: 40px;
+      border: 1px solid grey;
+    }
+  }
+}

@@ -13,6 +13,9 @@ function Navigation() {
       <NavLink to="/about" activeClassName="avtive">
         About
       </NavLink>
+      <NavLink to="/user" activeClassName="avtive">
+        User
+      </NavLink>
     </div>
   );
 }

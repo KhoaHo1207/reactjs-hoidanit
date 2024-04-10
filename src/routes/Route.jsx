@@ -25,7 +25,7 @@ const publicUrl = [
     component: ListUser,
   },
   {
-    path: "/user/:id",
+    path: "/users/:id", //hieu : la truyen tham so, khong co : thi chi la text
     component: DetailUser,
   },
 ];

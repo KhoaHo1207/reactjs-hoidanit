@@ -16,10 +16,13 @@ function App() {
         <Navigation />
         <img src={logo} className="App-logo" alt="logo" />
         <Routes>
-          {publicUrl.map((route, index) => {
-            const Page = route.component;
-            return <Route key={index} path={route.path} element={<Page />} />;
-          })}
+          {publicUrl.map((route, index) => (
+            <Route
+              key={index}
+              path={route.path}
+              element={<route.component />}
+            />
+          ))}
         </Routes>
         {/* <Form /> */}
         {/* <ListToDo /> */}

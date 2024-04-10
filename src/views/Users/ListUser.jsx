@@ -1,17 +1,18 @@
 import React, { Component, useEffect, useState } from "react";
 import axios from "axios";
 import "./ListUser.scss";
+import { Link } from "react-router-dom";
 // class ListUser extends Component {
 //   state = {
 //     listUsers: [],
 //   };
-//   async componentDidMount() {
-//     let res = await axios.get("https://reqres.in/api/users?page=2");
-//     this.setState({
-//       listUsers: res && res.data && res.data.data ? res.data.data : [],
-//     });
-//     console.log(res.data.data);
-//   }
+  // async componentDidMount() {
+  //   let res = await axios.get("https://reqres.in/api/users?page=2");
+  //   this.setState({
+  //     listUsers: res && res.data && res.data.data ? res.data.data : [],
+  //   });
+  //   console.log(res.data.data);
+  // }
 //   render() {
 //     let { listUsers } = this.state;
 //     return (
@@ -36,7 +37,7 @@ import "./ListUser.scss";
 // }
 const ListUser = () => {
   const [listUsers, setListUsers] = useState([]);
-  const baseUrl = "https://reqres.in/api/users?page=2";
+  const baseUrl = "https://reqres.in/api/users?page=1";
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -61,7 +62,9 @@ const ListUser = () => {
             <span>
               {index + 1} - {user.first_name} {user.last_name}
             </span>
-            <button style={{marginLeft: '3%'}} href={`/user/${user.id}`}>Detail</button>
+            <Link to={`/users/${user.id}`}>
+              <button style={{ marginLeft: "3%" }}>Detail</button>
+            </Link>
           </div>
         ))}
       </div>
